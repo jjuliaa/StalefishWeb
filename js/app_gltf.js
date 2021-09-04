@@ -1,4 +1,4 @@
-      import * as THREE from 'https://unpkg.com/browse/three@0.132.2/buithree.module.js';
+      import * as THREE from 'https://unpkg.com/browse/three@0.132.2/build/three.module.js';
       import { GLTFLoader } from 'https://unpkg.com/browse/three@0.132.2/examples/jsm/loaders/GLTFLoader.js';
       import { OrbitControls } from 'https://unpkg.com/browse/three@0.132.2/examples/jsm/controls/OrbitControls.js';
 
