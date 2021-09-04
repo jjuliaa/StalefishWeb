@@ -1,6 +1,6 @@
-      import * as THREE from '../node_modules/three/build/three.module.js';
-      import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-      import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
+      import * as THREE from 'https://unpkg.com/browse/three@0.132.2/buithree.module.js';
+      import { GLTFLoader } from 'https://unpkg.com/browse/three@0.132.2/examples/jsm/loaders/GLTFLoader.js';
+      import { OrbitControls } from 'https://unpkg.com/browse/three@0.132.2/examples/jsm/controls/OrbitControls.js';
 
       var canvas;
 
@@ -109,7 +109,6 @@
           camera.position.z = 5;
           scene.userData.camera = camera;
 
-
           camera.position.x = 0.02;
           camera.position.y = 8.38;
           camera.position.z = -0.35;
@@ -145,11 +144,12 @@
           scene.userData.controls = controls;
 
           //add glb
+          model = new THREE.Mesh();
           loadNextFile(scene, loadMsg);
 
 
           //lights white organge
-          light = new THREE.SpotLight(0xFFF3E8, 1); //0xffa95c,4);
+          light = new THREE.SpotLight(0x0000ff, 1); //0xffa95c,4);
           light.position.set(-50, 50, 50);
           light.castShadow = true;
           light.shadow.bias = -0.0001;
@@ -158,11 +158,11 @@
           light.position.set(0, 10, 0);
           scene.add(light);
 
-          var hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
+          var hemiLight = new THREE.HemisphereLight(0x0000ff, 0x0000ff, 4);
           hemiLight.position.set(0, 0, 0);
           scene.add(hemiLight);
 
-          var light1 = new THREE.AmbientLight(0x404040, 7); // soft white light
+          var light1 = new THREE.AmbientLight(0x0000ff, 7); // soft white light
           light1.position.set(0, 15, 0);
           scene.add(light1);
 
@@ -205,6 +205,7 @@
 
                   //to set material
   								child.material = material;
+
 
                   if( child.material ) {
                     child.material.side = THREE.DoubleSide; //makes the object look solid
@@ -357,6 +358,12 @@
           renderer.setScissor(left, bottom, width, height);
 
           var camera = scene.userData.camera;
+
+          //filter vertex colors to blue
+          //for (var i = 0; i < model.geometry.attributes.positions.length; i++) {
+          //model.geometry.attributes.color[i].setHSL( Math.random(), 0.5, 0.5 );
+        //}
+          //model.geometry.colorsNeedUpdate = true;
 
           //view camera position for custom setting
           //console.log("cam ", camera.position);
