@@ -1,6 +1,6 @@
-      import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.132.2-1edwuDlviJO0abBvWgKd/mode=imports/optimized/three.js';
-      import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-      import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'https://unpkg.com/browse/three@0.132.2/build/three.module.js';
+import { GLTFLoader } from 'https://unpkg.com/browse/three@0.132.2/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'https://unpkg.com/browse/three@0.132.2/examples/jsm/controls/OrbitControls.js';
 
       var canvas;
 
