@@ -12,7 +12,7 @@ var scenes = [],
   renderer;
 
 //to add new object: 1. increase scene count. 2. add file to files array 3. add name tag!
-var scenecount = 7;
+var scenecount = 6;
 var printcam = new Boolean(false);
 
 init();
@@ -59,7 +59,7 @@ function init() {
   i = 0;
 
   //order matters for naming tags!
-  files = ['models/GreyScale_data_vole_65_7E_id2_L23.gltf', 'models/Cividis_data_vole_65_7E_id2_L23.gltf', 'models/Monochrome_bluehue_data_vole_65_7E_id2_L23.gltf', 'models/Jet_data_vole_65_7E_id2_L23.gltf','models/Plasma_data_vole_65_7E_id2_L23.gltf', 'models/RainbowZeroBlack_data_vole_65_7E_id2_L23.gltf', 'models/Twilight_data_vole_65_7E_id2_L23.gltf'];
+  files = ['models/GreyScale_data_vole_65_7E_id2_L23.gltf', 'models/Cividis_data_vole_65_7E_id2_L23.gltf', 'models/Monochrome_bluehue_data_vole_65_7E_id2_L23.gltf', 'models/Jet_data_vole_65_7E_id2_L23.gltf','models/Plasma_data_vole_65_7E_id2_L23.gltf',  'models/Twilight_data_vole_65_7E_id2_L23.gltf'];
 
   var content = document.getElementById('content');
 
@@ -121,16 +121,6 @@ function init() {
     }
 
     if (i == 5) {
-      //add loading Messages
-      var textinput = document.createElement('input'); //div 3
-      textinput.className = 'input';
-      textinput.placeholder = "RainbowZeroBlack (Vole 65_7E_id2_sj_surface)";
-      //add specific load message
-      element.appendChild(textinput);
-
-    }
-
-    if (i == 6) {
       //add loading Messages
       var textinput = document.createElement('input'); //div 3
       textinput.className = 'input';
