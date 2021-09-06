@@ -13,6 +13,7 @@ var scenes = [],
 
 //to add new object: 1. increase scene count. 2. add file to files array 3. add name tag!
 var scenecount = 7;
+var printcam = new Boolean(false);
 
 init();
 animate();
@@ -160,17 +161,18 @@ function init() {
     camera.position.z = 5;
     scene.userData.camera = camera;
 
-    camera.position.x = 0.02;
-    camera.position.y = 8.38;
-    camera.position.z = -0.35;
+    camera.position.x = -1.02;
+    camera.position.y = -2.21;
+    camera.position.z = -5.90;
 
     //custom camera loading positions (this should get standardized by model sizes)
-    if (index == 0) {
-      camera.position.x = 0.02;
-      camera.position.y = 8.38;
+    /*if (index == 0) {
+      camera.position.x = -1.02;
+      camera.position.y = 7.38;
       camera.position.z = -0.35;
       //add controls to first sketch
     }
+    */
 
     var controls = new OrbitControls(scene.userData.camera, scene.userData.element);
     controls.minDistance = 0.1;
@@ -392,7 +394,9 @@ function render() {
     //model.geometry.colorsNeedUpdate = true;
 
     //view camera position for custom setting
-    //console.log("cam ", camera.position);
+    if (printcam) {
+    console.log("cam ", camera.position);
+  }
 
     //dynamic lighting attempt
     light.position.set(
