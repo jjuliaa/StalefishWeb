@@ -140,7 +140,7 @@ function init() {
       //add loading Messages
       var textinput = document.createElement('input'); //div 3
       textinput.className = 'input';
-      textinput.placeholder = "Monodelphis from P19 to P36 (id2) morph";
+      textinput.placeholder = "Monodelphis Morph from P19 to P36 (id2)";
       //add specific load message
       element.appendChild(textinput);
 
