@@ -12,7 +12,8 @@ var scenes = [],
   renderer;
 
 //to add new object: 1. increase scene count. 2. add file to files array 3. add name tag!
-var scenecount = 6;
+var scenecount = 7;
+
 var printcam = new Boolean(false);
 
 init();
@@ -59,7 +60,11 @@ function init() {
   i = 0;
 
   //order matters for naming tags!
-  files = ['models/GreyScale_data_vole_65_7E_id2_L23.gltf', 'models/Cividis_data_vole_65_7E_id2_L23.gltf', 'models/Monochrome_bluehue_data_vole_65_7E_id2_L23.gltf', 'models/Jet_data_vole_65_7E_id2_L23.gltf','models/Plasma_data_vole_65_7E_id2_L23.gltf',  'models/Twilight_data_vole_65_7E_id2_L23.gltf'];
+  files = ['models/GreyScale_data_vole_65_7E_id2_L23.gltf', 'models/Cividis_data_vole_65_7E_id2_L23.gltf',
+    'models/Monochrome_bluehue_data_vole_65_7E_id2_L23.gltf', 'models/Jet_data_vole_65_7E_id2_L23.gltf',
+    'models/Plasma_data_vole_65_7E_id2_L23.gltf', 'models/Twilight_data_vole_65_7E_id2_L23.gltf',
+    'models/Morph_Monodelphis_id2_P19_to_P36.glb'
+  ];
 
   var content = document.getElementById('content');
 
@@ -120,11 +125,22 @@ function init() {
 
     }
 
+
     if (i == 5) {
       //add loading Messages
       var textinput = document.createElement('input'); //div 3
       textinput.className = 'input';
       textinput.placeholder = "Twilight (Vole 65_7E_id2_sj_surface)";
+      //add specific load message
+      element.appendChild(textinput);
+
+    }
+
+    if (i == 6) {
+      //add loading Messages
+      var textinput = document.createElement('input'); //div 3
+      textinput.className = 'input';
+      textinput.placeholder = "Monodelphis from P19 to P36 (id2) morph";
       //add specific load message
       element.appendChild(textinput);
 
@@ -156,13 +172,12 @@ function init() {
     camera.position.z = -5.90;
 
     //custom camera loading positions (this should get standardized by model sizes)
-    /*if (index == 0) {
-      camera.position.x = -1.02;
-      camera.position.y = 7.38;
-      camera.position.z = -0.35;
+    if (index == 6) {
+      camera.position.x = 0.04;
+      camera.position.y = -0.25;
+      camera.position.z = -2.52;
       //add controls to first sketch
     }
-    */
 
     var controls = new OrbitControls(scene.userData.camera, scene.userData.element);
     controls.minDistance = 0.1;
@@ -296,16 +311,16 @@ function createNewMixer(model, gltf) {
 
 function updateSize() {
 
-				const width = canvas.clientWidth;
-				const height = canvas.clientHeight;
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
 
-				if ( canvas.width !== width || canvas.height !== height ) {
+  if (canvas.width !== width || canvas.height !== height) {
 
-					renderer.setSize( width, height, false );
+    renderer.setSize(width, height, false);
 
-				}
+  }
 
-			}
+}
 
 function animate() {
 
@@ -365,8 +380,8 @@ function render() {
     var left = rect.left;
     var bottom = renderer.domElement.clientHeight - rect.bottom;
 
-    renderer.setViewport( left, bottom, width, height );
-    renderer.setScissor( left, bottom, width, height );
+    renderer.setViewport(left, bottom, width, height);
+    renderer.setScissor(left, bottom, width, height);
 
     //document.body.appendChild(renderer.domElement);
     //lighting related renderer settings
@@ -384,9 +399,9 @@ function render() {
     //model.geometry.colorsNeedUpdate = true;
 
     //view camera position for custom setting
-    if (printcam) {
-    console.log("cam ", camera.position);
-  }
+    //if (printcam) {
+      //console.log("cam ", camera.position);
+    //}
 
     //dynamic lighting attempt
     light.position.set(
