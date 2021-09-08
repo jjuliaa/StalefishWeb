@@ -20,6 +20,7 @@
       color: #08f;
     }
 
+
     #content {
       position: absolute;
       top: 0;
@@ -40,11 +41,21 @@
       overflow: auto;
     }
 
+
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          color: white;
+          text-align: center;
+        }
+
     .list-item {
       display: inline-block;
       margin: 1em;
       padding: 1em;
-      box-shadow: 1px 2px 4px 0px rgba(10,10,10);
+      box-shadow: 1px 2px 4px 0px rgba(10, 10, 10);
     }
 
     .list-item>div:nth-child(1) {
@@ -65,7 +76,13 @@
       overflow: auto;
 
     }
-    .input{
+
+    .img>div:nth-child(3) {
+      width: 100%;
+    }
+
+
+    .input {
       font-family: sans-serif;
       font-variant: small-caps;
       text-align: left;
@@ -73,6 +90,7 @@
       word-break: break-all;
 
     }
+
 
 
     #textmessage {
@@ -87,8 +105,6 @@
       text-align: center;
       overflow: auto;
     }
-
-
   </style>
 </head>
 
@@ -96,15 +112,26 @@
 <body>
   <canvas id="c"></canvas>
   <div id="content">
-
     <div id="textmessage">
       <p>Stalefish Interactive: Spatial Analysis of ISH Brain Slice Data (demo only)</p>
     </div>
+
+    <canvas id="c"></canvas>
+    <div id = "footer">
+      <img src="SelectMammals_1.png">
+    </div>
+
+    <canvas id="c"></canvas>
+    <div class="footer">
+      <img src="labLogo.jpg" alt="HTML5 Icon" style="width:628px;height:128px;">
+    </div>
+
     <div id="header"></div>
     <div id="container"></div>
     <div id="input"></div>
 
-<!-- cdns
+
+    <!-- cdns
     <script src="https://unpkg.com/browse/three@0.132.2/build/three.module.js"></script>
     <script src="https://unpkg.com/browse/three@0.132.2/examples/jsm/loaders/GLTFLoader.js"></script>
     <script src="https://unpkg.com/browse/three@0.132.2/examples/jsm/controls/OrbitControls.js"></script>
@@ -505,7 +532,7 @@
    </script>
      -->
 
-     <script type="module" src="js/app_gltf.js"></script>
+    <script type="module" src="js/app_gltf.js"></script>
 
 
 

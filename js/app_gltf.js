@@ -322,6 +322,23 @@ function updateSize() {
 
 }
 
+function loadmorphGeometries() {
+
+}
+
+function morphBufferGeometries(targetmesh, mesh) {
+  //this may have performance issues
+ //for (var b = 0; b < 2; b++) {   // iterate through 5 morph targets
+  var deltaVertices = targetmesh.geometry.attributes.position.array;
+
+        for (var i = 0; i < vertices.length; i++) {
+            // blend other shapes as delta to the Neutral one
+            mesh.geometry.attributes.position.array[i] +=  weight_b * deltaVertices[i];
+        }
+    //}
+  }
+
+
 function animate() {
 
   render();
@@ -341,6 +358,8 @@ function animate() {
 }
 
 function render() {
+  //var object = scene.getObjectByName( "objectName", true );
+  //morphBufferGeometries();
 
   updateSize();
 
@@ -358,7 +377,6 @@ function render() {
 
     // so something moves
     //scene.children[0].rotation.y = Date.now() * 0.001;
-
     // get the element that is a place holder for where we want to
     // draw the scene
     var element = scene.userData.element;
