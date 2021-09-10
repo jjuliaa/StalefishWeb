@@ -14,6 +14,9 @@ var scenes = [],
 //to add new object: 1. increase scene count. 2. add file to files array 3. add name tag!
 var scenecount = 7;
 
+//change morph materials
+var switchIndex = 6;
+
 var printcam = new Boolean(false);
 
 init();
@@ -63,7 +66,7 @@ function init() {
   files = ['models/GreyScale_data_vole_65_7E_id2_L23.gltf', 'models/Cividis_data_vole_65_7E_id2_L23.gltf',
     'models/Monochrome_bluehue_data_vole_65_7E_id2_L23.gltf', 'models/Jet_data_vole_65_7E_id2_L23.gltf',
     'models/Plasma_data_vole_65_7E_id2_L23.gltf', 'models/Twilight_data_vole_65_7E_id2_L23.gltf',
-    'models/Morph_Monodelphis_id2_P19_to_P36.glb'
+    'models/Morph_blue_MonoD_P19_P36_.glb'
   ];
 
   var content = document.getElementById('content');
@@ -225,6 +228,20 @@ function loadNextFile(scene, loadMsg) {
       // called when the resource is loaded
       model = gltf.scene;
       scene.add(model);
+
+      //change material settings for morph files at bottom:
+      if (scenecount == 6){
+        console.log("true");
+        //materials and surface settings
+        model.traverse(function(child) {
+          if (child.isMesh) {
+           //position set for direct exports out of Stalefish
+            child.geometry.center();
+            //Don't set materials
+            }
+          });
+        }
+
 
       //materials and surface settings
       model.traverse(function(child) {
