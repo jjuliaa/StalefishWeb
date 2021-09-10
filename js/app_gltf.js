@@ -12,7 +12,7 @@ var scenes = [],
   renderer;
 
 //to add new object: 1. increase scene count. 2. add file to files array 3. add name tag!
-var scenecount = 7;
+var scenecount = 8;
 
 //change morph materials
 var switchIndex = 6;
