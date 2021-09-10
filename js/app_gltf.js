@@ -12,10 +12,10 @@ var scenes = [],
   renderer;
 
 //to add new object: 1. increase scene count. 2. add file to files array 3. add name tag!
-var scenecount = 8;
+var scenecount = 7;
 
 //change morph materials
-var switchIndex = 6;
+var switchIndex = 7;
 
 var printcam = new Boolean(false);
 
@@ -146,6 +146,7 @@ function init() {
       textinput.placeholder = "Monodelphis Morph from P19 to P36 (id2)";
       //add specific load message
       element.appendChild(textinput);
+      
 
     }
 
@@ -228,20 +229,8 @@ function loadNextFile(scene, loadMsg) {
       // called when the resource is loaded
       model = gltf.scene;
       scene.add(model);
-
+      console.log("index ", index);
       //change material settings for morph files at bottom:
-      if (scenecount == 6){
-        console.log("true");
-        //materials and surface settings
-        model.traverse(function(child) {
-          if (child.isMesh) {
-           //position set for direct exports out of Stalefish
-            child.geometry.center();
-            //Don't set materials
-            }
-          });
-        }
-
 
       //materials and surface settings
       model.traverse(function(child) {
@@ -454,3 +443,9 @@ function render() {
   });
 
 }
+
+function printMousePos(event) {
+    console.log("x: ", event.clientX, "y: ", event.clientY);
+  }
+
+document.addEventListener("click", printMousePos);
