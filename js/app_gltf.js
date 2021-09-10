@@ -80,6 +80,7 @@ function init() {
     var element = document.createElement('div'); //div 0
     element.className = 'list-item';
 
+
     var sceneElement = document.createElement('div'); //div 1
     element.appendChild(sceneElement);
 
@@ -140,13 +141,14 @@ function init() {
     }
 
     if (i == 6) {
+      element.className = 'newlistitem';
       //add loading Messages
       var textinput = document.createElement('input'); //div 3
       textinput.className = 'input';
       textinput.placeholder = "Monodelphis Morph from P19 to P36 (id2)";
       //add specific load message
       element.appendChild(textinput);
-      
+
 
     }
 
